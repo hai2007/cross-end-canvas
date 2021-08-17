@@ -11,6 +11,7 @@ let CrossEndCanvas = config => new Promise((resolve, reject) => {
 
     } else if (config.platform == 'weixin') {
 
+        let dpr = wx.getSystemInfoSync().pixelRatio;
         wx.createSelectorQuery().in(config.target).select('#' + config.id)
             .fields({ node: true, size: true })
             .exec((res) => {
@@ -19,7 +20,7 @@ let CrossEndCanvas = config => new Promise((resolve, reject) => {
 
                 canvas.width = res[0].width * dpr;
                 canvas.height = res[0].height * dpr;
-                ctx.scale(dpr, dpr);
+                painter.scale(dpr, dpr);
 
                 resolve(painter);
             });
@@ -31,7 +32,7 @@ let CrossEndCanvas = config => new Promise((resolve, reject) => {
 }).then(painter => {
 
     let enhancePainter = {
-
+        _painter_:painter
     };
 
     return enhancePainter;
