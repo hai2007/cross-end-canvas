@@ -1,13 +1,31 @@
+import painterFactory from './painter/index';
 
 let CrossEndCanvas = config => new Promise((resolve, reject) => {
 
     if (config.platform == 'web') {
 
-        resolve(document.getElementById(config.id).getContext('2d'));
+        let canvas = document.getElementById(config.id);
+        let width = canvas.clientWidth,//内容+内边距
+            height = canvas.clientHeight;
+
+        // 设置显示大小
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+
+        // 设置画布大小（画布大小设置为显示的二倍，使得显示的时候更加清晰）
+        canvas.setAttribute('width', width * 2);
+        canvas.setAttribute('height', height * 2);
+
+        let painter = canvas.getContext("2d");
+
+        // 通过缩放实现模糊问题
+        painter.scale(2, 2);
+
+        resolve(painter, config.platform);
 
     } else if (config.platform == 'uni-app') {
 
-        resolve(uni.createCanvasContext(config.id, config.target));
+        resolve(uni.createCanvasContext(config.id, config.target), config.platform);
 
     } else if (config.platform == 'weixin') {
 
@@ -22,20 +40,15 @@ let CrossEndCanvas = config => new Promise((resolve, reject) => {
                 canvas.height = res[0].height * dpr;
                 painter.scale(dpr, dpr);
 
-                resolve(painter);
+                resolve(painter, config.platform);
             });
 
     } else {
         reject('你必须配置一个合法的平台');
     }
 
-}).then(painter => {
-
-    let enhancePainter = {
-        _painter_:painter
-    };
-
-    return enhancePainter;
+}).then((painter, platform, canvas) => {
+    return painterFactory(painter, platform);
 });
 
 // 根据运行环境，导出接口

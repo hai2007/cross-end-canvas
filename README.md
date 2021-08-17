@@ -1,4 +1,4 @@
-# cross-end-canvas
+# [cross-end-canvas](https://hai2007.github.io/cross-end-canvas)
 提供跨端的canvas画笔，保持一致的绘图方法和效果，包括普通的web端、uniapp框架、微信小程序等小程序等。
 
 <p align="center">
@@ -46,6 +46,8 @@ CrossEndCanvas({
 
 });
 ```
+
+具体内容，你可以[查看文档](https://hai2007.github.io/cross-end-canvas)哦~
 
 开源协议
 ---------------------------------------

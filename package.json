@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/hai2007/cross-end-canvas/issues"
   },
-  "homepage": "https://github.com/hai2007/cross-canvas#readme",
+  "homepage": "https://hai2007.github.io/cross-end-canvas",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
