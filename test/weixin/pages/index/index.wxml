@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view>
-    <canvas id='canvas' type="2d"></canvas>
+    <canvas id="canvas" style="width: 400px; height: 400px" type='2d'></canvas>
     <button bindtap='doit'>
         绘制
     </button>

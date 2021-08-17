@@ -1,17 +1,370 @@
 <template>
-    研发中，敬请期待
+    <div class="menu-view">
+        <div>
+            <h2>Cross End Canvas</h2>
+            <ul>
+                <li>
+                    <h3 @click='doScroll("begin")'>开始使用</h3>
+                    <ul>
+                        <li>
+                            <h4 @click='doScroll("import")'>如何引入？</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("cdn")'>CDN</h5>
+                                </li>
+                                <li>
+                                    <h5 @click='doScroll("npm")'>NPM包管理</h5>
+                                    <ul>
+                                        <li>
+                                            <h6 @click='doScroll("npm-wx")'>微信小程序特殊说明</h6>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("use")'>
+                                使用
+                            </h4>
+                            <ul>
+                                <li>
+                                    <h3 @click='doScroll("use-uniapp")'>uni-app特殊说明</h3>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 @click='doScroll("painter")'>画笔</h3>
+                    <ul>
+                        <li>
+                            <h4 @click='doScroll("config")'>配置画笔</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("gradient")'>渐变色</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("method")'>绘图方法</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("text")'>文字</h5>
+                                </li>
+                                <li>
+                                    <h5 @click='doScroll("arc")'>弧形</h5>
+                                </li>
+                                <li>
+                                    <h5 @click='doScroll("circle")'>圆</h5>
+                                </li>
+                                <li>
+                                    <h5 @click='doScroll("rect")'>矩形</h5>
+                                </li>
+                                <li>
+                                    <h5 @click='doScroll("path")'>路径</h5>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="https://github.com/hai2007/cross-end-canvas" target="_blank">Fork Me On Github</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class='doc-view' id='root-view'>
+            <header id="fixed-begin" @click='doScroll("begin")'>开始使用</header>
+            <h1 id="fixed-import" @click='doScroll("import")'>如何引入？</h1>
+            <h3 id="fixed-cdn" @click='doScroll("cdn")'>CDN</h3>
+            <p>
+                如果是一个web项目，可以直接使用CDN的方式：
+            </p>
+            <pre q-code>
+                <script src="https://cdn.jsdelivr.net/npm/cross-end-canvas@0"></script>
+            </pre>
+            <h3 id="fixed-npm" @click='doScroll("npm")'>NPM包管理</h3>
+            <p>
+                更多的时候，我们推荐使用npm的方式进行管理，安装：
+            </p>
+            <pre q-code>
+                npm install cross-end-canvas
+            </pre>
+            <p>
+                然后，就可以直接在需要使用的地方引入：
+            </p>
+            <pre q-code>
+                import CrossEndCanvas from 'cross-end-canvas';
+            </pre>
+            <h4 id="fixed-npm-wx" @click='doScroll("npm-wx")'>微信小程序特殊说明</h4>
+            <p>
+                你还需要构建npm，通过在微信小程序开发工具界面的『工具』->『构建 npm』即可。
+            </p>
+            <h1 id="fixed-use" @click='doScroll("use")'>使用</h1>
+            <pre q-code>
+CrossEndCanvas({
+    id:string, // canvas的ID
+    platform:string, // 平台，可选值： web|weixin|uni-app
+    target:this, // weixin和unia-app需要配置，表示canvas所在的对象
+}).then(function(painter){
+
+    // 使用painter绘制即可
+
+});
+            </pre>
+            <h3 id="fixed-use-uniapp" @click='doScroll("use-uniapp")'>uni-app特殊说明</h3>
+            <p>
+                每次用画笔绘制完毕以后，都需要额外执行下面这行代码：
+            </p>
+            <pre q-code>
+                painter.draw();
+            </pre>
+            <header id='fixed-painter'>
+                画笔
+            </header>
+            <h1 id="fixed-config" @click='doScroll("config")'>配置画笔</h1>
+            <pre q-code>painter.config({
+
+    // 填充色或图案，默认'black'
+    "fillStyle":string,
+
+    // 轮廓色或图案，默认'black'
+    "strokeStyle":string,
+
+    // 线条宽度(单位px，下同)默认1
+    "lineWidth":number,
+
+    // 文字水平对齐方式（"left"左对齐、"center"居中和"right"右对齐）默认'left'
+    "textAlign":string,
+
+    // 文字垂直对齐方式（"middle"垂直居中、"top"上对齐和"bottom"下对齐）默认'middle'
+    "textBaseline":string,
+
+    // 文字大小，默认16
+    "font-size":number,
+
+    // 字体，默认"sans-serif"
+    "font-family":string,
+
+    // 圆弧开始端闭合方式（"butt"直线闭合、"round"圆帽闭合）默认'butt'
+    "arc-start-cap":string,
+
+    // 圆弧结束端闭合方式，和上一个类似,默认'butt'
+    "arc-end-cap":string,
+
+    // 设置线条虚线，应该是一个数组[number,...]，默认[]
+    "lineDash":array,
+
+    // 阴影的模糊系数，默认0，也就是无阴影
+    "shadowBlur": 0,
+
+    // 阴影的颜色，默认'black'
+    "shadowColor": string
+
+});</pre>
+            <p>
+                你需要配置你绘制的图形需要的选项即可！
+            </p>
+            <h2 id="fixed-gradient" @click='doScroll("gradient")'>
+                渐变色
+            </h2>
+            <p>
+                除了使用纯色填充，还可以使用渐变色作为画笔的颜色，你把它看成普通的颜色使用就可以了。
+            </p>
+            <span class="no-menu-title">
+                创建
+            </span>
+            <p>
+                <span class="important">线性渐变</span>
+                ：四个参数分别表示渐变的起点P(x1, y1)和终点P(x2, y2)：
+            </p>
+            <pre q-code>var gradient = painter.createLinearGradient(x1, y1, x2, y2);</pre>
+            <p>
+                <span class="important">环形渐变</span>
+                ：三个参数分别表示渐变的圆心P(cx, cy)和半径r：
+            </p>
+            <pre q-code>var gradient = painter.createRadialGradient(cx, cy, r);</pre>
+            <p class="warn">
+                温馨提示：上述坐标的单位都是px，对于环形渐变而言，渐变的起点是圆心！
+            </p>
+            <span class="no-menu-title">
+                设置
+            </span>
+            <p>
+                获取渐变对象以后，你需要添加渐变色，可以添加任意多个：
+            </p>
+            <pre q-code>gradient.addColorStop(deep, color);</pre>
+            <p>
+                上述deep取值为闭区间[0, 1]，color可以是任意合法的颜色值（不可以是渐变色）。
+            </p>
+            <span class="no-menu-title">
+                获取
+            </span>
+            <pre q-code>var gradientColor = gradient.value();</pre>
+            <h1 id="fixed-method" @click='doScroll("method")'>绘图方法</h1>
+            <h3 id="fixed-text" @click='doScroll("text")'>
+                文字
+            </h3>
+            <p>
+                在点(x, y)处绘制填充的文字text；deg表示文字旋转角度，可选：
+            </p>
+            <pre q-code>painter.fillText(text, x, y[, deg]);</pre>
+            <p>
+                在点(x, y)处绘制轮廓的文字text；deg表示文字旋转角度，可选：
+            </p>
+            <pre q-code>painter.strokeText(text, x, y[, deg]);</pre>
+            <p>
+                在点(x, y)处绘制轮廓并填充的文字text；deg表示文字旋转角度，可选：
+            </p>
+            <pre q-code>painter.fullText(text, x, y[, deg]);</pre>
+            <h3 id="fixed-arc" @click='doScroll("arc")'>
+                弧形
+            </h3>
+            <p>
+                以(cx, cy)为圆心，内外半径分别是r1和r2，从弧度beginDeg开始，跨越弧度deg，绘制填充圆弧：
+            </p>
+            <pre q-code>painter.fillArc(cx, cy, r1, r2, beginDeg, deg);</pre>
+            <p>
+                和fillArc方法类似，只不过绘制的是轮廓圆弧：
+            </p>
+            <pre q-code>painter.strokeArc(cx, cy, r1, r2, beginDeg, deg);</pre>
+            <p>
+                和fillArc方法类似，只不过绘制的是轮廓并填充圆弧：
+            </p>
+            <pre q-code>painter.fullArc(cx, cy, r1, r2, beginDeg, deg);</pre>
+            <h3 id="fixed-circle" @click='doScroll("circle")'>
+                圆
+            </h3>
+            <p>
+                以(cx, cy)为圆心，半径r绘制填充圆形：
+            </p>
+            <pre q-code>painter.fillCircle(cx, cy, r);</pre>
+            <p>
+                以(cx, cy)为圆心，半径r绘制轮廓圆形：
+            </p>
+            <pre q-code>painter.strokeCircle(cx, cy, r);</pre>
+            <p>
+                以(cx, cy)为圆心，半径r绘制轮廓并填充圆形：
+            </p>
+            <pre q-code>painter.fullCircle(cx, cy, r);</pre>
+            <h3 id="fixed-rect" @click='doScroll("rect")'>
+                矩形
+            </h3>
+            <p>
+                以(x, y)为左上角，宽width，高height绘制填充矩形：
+            </p>
+            <pre q-code>painter.fillRect(x, y, width, height);</pre>
+            <p>
+                以(x, y)为左上角，宽width，高height绘制轮廓矩形：
+            </p>
+            <pre q-code>painter.strokeRect(x, y, width, height);</pre>
+            <p>
+                以(x, y)为左上角，宽width，高height绘制轮廓并填充矩形：
+            </p>
+            <pre q-code>painter.fullRect(x, y, width, height);</pre>
+            <h3 id="fixed-path" @click='doScroll("path")'>
+                路径
+            </h3>
+            <p>
+                基于路径可以绘制几乎大部分图形，你几乎可以描述任意一个区域。
+            </p>
+            <p>
+                开始一段独立的路径：
+            </p>
+            <pre q-code>painter.beginPath();</pre>
+            <p>
+                闭合当前路径，也就是路径首尾闭合：
+            </p>
+            <pre q-code>painter.closePath();</pre>
+            <p>
+                画笔移动到点(x, y)，此时笔离开了画布：
+            </p>
+            <pre q-code>painter.moveTo(x, y);</pre>
+            <p>
+                画笔移动到点(x, y)，此时笔没有离开画布：
+            </p>
+            <pre q-code>painter.lineTo(x, y);</pre>
+            <p>
+                以(cx, cy)为圆心，半径r，从弧度beginDeg开始，跨越弧度deg画弧，此时笔没有离开画布：
+            </p>
+            <pre q-code>painter.arc(cx, cy, r, beginDeg, deg);</pre>
+            <p>
+                二次贝塞尔曲线到
+            </p>
+            <pre q-code>painter.quadraticCurveTo(cpx, cpy, x, y);</pre>
+            <p>
+                三次贝塞尔曲线到：
+            </p>
+            <pre q-code>painter.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);</pre>
+            <p>
+                把当前路径包裹的区域填充颜色：
+            </p>
+            <pre q-code>painter.fill();</pre>
+            <p>
+                把当前路径上色（轮廓线）：
+            </p>
+            <pre q-code>painter.stroke();</pre>
+            <p>
+                把当前路径画上轮廓线并填充颜色到当前路径所包裹的区域：
+            </p>
+            <pre q-code>painter.full();</pre>
+        </div>
+        <ui-footer></ui-footer>
+    </div>
 </template>
 <script>
-
-
+    import fixedScroll from './Service/fixedScroll.js';
+    import uiFooter from './components/ui-footer.paper';
     export default {
-        data() {
-            return {
-
-            };
+        mounted() {
+            fixedScroll(document.getElementById('api-id'), 0);
+        },
+        methods: {
+            doScroll(fixedName) {
+                window.location.href = "#/" + fixedName;
+                fixedScroll(document.getElementById('api-id'), 0);
+            }
+        },
+        component: {
+            uiFooter
         }
     };
+
 </script>
 <style>
+    [quickpaper] {
+        white-space: nowrap;
 
+        &>div {
+            display: inline-block;
+            vertical-align: top;
+            white-space: normal;
+            height: 100vh;
+
+            &.menu-view {
+                width: 300px;
+                position: fixed;
+                left: 0;
+                top: 0;
+
+                &>div {
+                    &>a {
+                        background-color: #529bcf;
+                        color: white;
+                        text-align: center;
+                        margin-top: .3rem;
+                        cursor: pointer;
+                        font-size: .15rem;
+                        display: block;
+                        width: 2.6rem;
+                        padding: .1rem 0;
+                    }
+                }
+            }
+
+            &.content {
+                margin-left: 300px;
+                width: calc(100vw - 300px);
+            }
+        }
+    }
 </style>

@@ -1,0 +1,48 @@
+div.menu-view {
+    height: 100vh;
+    white-space: nowrap;
+}
+
+div.menu-view>div {
+    height: 100vh;
+    overflow: auto;
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+}
+
+
+div.menu-view>div:first-child {
+    width: 2.8rem;
+    padding: .2rem;
+}
+
+div.menu-view>div:first-child h3,
+div.menu-view>div:first-child h4,
+div.menu-view>div:first-child h5,
+div.menu-view>div:first-child h6 {
+    font-weight: 400;
+    font-size: .14rem;
+    color: #304455;
+    cursor: pointer;
+    display: inline-block;
+    margin: .07rem 0;
+    height: 1.2em;
+    color: #304455;
+}
+
+div.menu-view>div:first-child h3:hover,
+div.menu-view>div:first-child h4:hover,
+div.menu-view>div:first-child h5:hover,
+div.menu-view>div:first-child h6:hover {
+    border-bottom: 2px solid #2396b9;
+}
+
+div.menu-view>div:first-child h2 {
+    padding: 10px 0;
+    font-size: .16rem;
+}
+
+div.menu-view>div:first-child li {
+    margin-left: 1em;
+}

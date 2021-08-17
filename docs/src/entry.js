@@ -5,7 +5,9 @@ import '@hai2007/polyfill/Promise.js';
 
 // 引入样式
 import "@hai2007/style/normalize.css";
-import "./styles/common.css";
+import './style/style.css';
+import "./style/doc.css";
+import "./style/menu.css";
 
 import App from './App.paper';
 

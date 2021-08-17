@@ -21,11 +21,11 @@ let CrossEndCanvas = config => new Promise((resolve, reject) => {
         // 通过缩放实现模糊问题
         painter.scale(2, 2);
 
-        resolve(painter, config.platform);
+        resolve([painter, config.platform]);
 
     } else if (config.platform == 'uni-app') {
 
-        resolve(uni.createCanvasContext(config.id, config.target), config.platform);
+        resolve([uni.createCanvasContext(config.id, config.target), config.platform]);
 
     } else if (config.platform == 'weixin') {
 
@@ -40,15 +40,15 @@ let CrossEndCanvas = config => new Promise((resolve, reject) => {
                 canvas.height = res[0].height * dpr;
                 painter.scale(dpr, dpr);
 
-                resolve(painter, config.platform);
+                resolve([painter, config.platform]);
             });
 
     } else {
         reject('你必须配置一个合法的平台');
     }
 
-}).then((painter, platform, canvas) => {
-    return painterFactory(painter, platform);
+}).then((data) => {
+    return painterFactory(data[0], data[1]);
 });
 
 // 根据运行环境，导出接口

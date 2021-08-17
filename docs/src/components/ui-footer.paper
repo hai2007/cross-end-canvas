@@ -1,0 +1,32 @@
+<template>
+    <footer>
+        Copyright © 2021
+        <a href="https://hai2007.gitee.io/sweethome/" target="_blank">hai2007 走一步，再走一步。</a>
+        All rights reserved.
+        <br />
+        本网站由“你好2007”设计、开发和维护
+    </footer>
+</template>
+<style>
+    footer {
+        height: 97px;
+        text-align: center;
+        background-color: #fafafa;
+        border-top: 1px solid #d3d0d0;
+        line-height: 2em;
+        padding: 20px 0;
+        font-size: 14px;
+
+        a {
+            padding: 0 5px;
+            color: rgb(5, 100, 117);
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+                color: rgb(3, 61, 71);
+                font-weight: 800;
+            }
+        }
+    }
+</style>

@@ -1,0 +1,140 @@
+.doc-view {
+    width: 7rem;
+    margin: auto;
+    padding: .3rem 0;
+}
+
+.doc-view>header {
+    font-size: .3rem;
+    padding: .3rem 0 .2rem 0;
+}
+
+.doc-view>h1 {
+    font-size: .18rem;
+    line-height: 2em;
+    margin-top: .2rem;
+}
+
+.sub-title {
+    color: #555;
+    font-size: .8em;
+    margin: .1em .3em;
+}
+
+.doc-view>h1::before {
+    content: "#";
+    color: #2396b9;
+    margin-right: .05rem;
+}
+
+
+.doc-view>h2 {
+    font-size: .16rem;
+    border-bottom: 1px solid gray;
+    padding: .1rem 0;
+    margin-top: .3rem;
+    color: rgb(83, 81, 81);
+    font-weight: 400;
+}
+
+.doc-view>h3 {
+    font-size: .16rem;
+    line-height: 2em;
+    margin-top: .2rem;
+}
+
+.doc-view>h4 {
+    font-size: .15rem;
+    line-height: 2em;
+    margin-top: .2rem;
+    padding-left: 1em;
+    color: #060606;
+}
+
+.doc-view>span.no-menu-title {
+    padding: .1rem;
+    display: block;
+    color: rgb(12, 12, 12);
+    font-weight: 800;
+}
+
+
+.doc-view>p {
+    line-height: 1.6em;
+    text-indent: 2em;
+    color: rgb(60, 57, 57);
+    font-weight: 400;
+    font-size: .14rem;
+    margin: .1rem 0;
+}
+
+.doc-view .important {
+    color: red;
+    font-weight: 800;
+    padding: 0 2px;
+}
+
+.doc-view .public {
+    color: #dac305;
+    font-weight: 800;
+    padding: 0 2px;
+}
+
+.doc-view .url {
+    text-decoration: underline;
+    color: rgb(2, 141, 2);
+}
+
+.doc-view .warn {
+    color: #030303;
+    font-weight: 800;
+    padding: 0 2px;
+    font-size: 12px;
+}
+
+.doc-view a {
+    color: #2396b9;
+    font-weight: 800;
+    text-decoration: underline;
+    padding: 0 2px;
+}
+
+.doc-view>div {
+    position: relative;
+}
+
+.doc-view>div>pre {
+    font-family: cursive;
+    font-weight: 400;
+    font-size: 0.14rem;
+    padding: .15rem .2rem;
+    line-height: 1.6em;
+}
+
+
+.doc-view>ul {
+    margin-left: .5rem;
+}
+
+.doc-view>ul li {
+    list-style-type: disc;
+    line-height: 2em;
+    font-size: .13rem;
+    color: #000000;
+}
+
+.beta {
+    position: relative;
+}
+
+.beta::after {
+    content: "beta";
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 0 5px;
+    position: absolute;
+    display: inline-block;
+    height: 1.5em;
+    line-height: 1.5em;
+}

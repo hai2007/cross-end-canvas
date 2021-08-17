@@ -202,6 +202,11 @@ export default function (painter, platform) {
 
     };
 
+    if (platform == 'uni-app') enhancePainter.draw = () => {
+        painter.draw();
+        return enhancePainter;
+    };
+
     return enhancePainter;
 
 };

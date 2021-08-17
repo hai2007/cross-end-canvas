@@ -10,7 +10,7 @@
 
 <body>
 
-    <canvas id='canvas'></canvas>
+    <canvas id='canvas' style='width:400px;height:400px'></canvas>
 
     <script>
 
@@ -18,7 +18,15 @@
             id: 'canvas',
             platform: 'web'
         }).then(function (painter) {
+
             console.log(painter);
+
+            painter.config({
+                "fillStyle": "red",
+                "strokeStyle": "pink",
+                "lineWidth":50
+            }).fullCircle(200, 200, 120);
+
         });
 
     </script>
