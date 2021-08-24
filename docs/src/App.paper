@@ -308,12 +308,10 @@ CrossEndCanvas({
             </p>
             <pre q-code>painter.full();</pre>
         </div>
-        <ui-footer></ui-footer>
     </div>
 </template>
 <script>
     import fixedScroll from './Service/fixedScroll.js';
-    import uiFooter from './components/ui-footer.paper';
     export default {
         mounted() {
             fixedScroll(document.getElementById('api-id'), 0);
@@ -323,9 +321,6 @@ CrossEndCanvas({
                 window.location.href = "#/" + fixedName;
                 fixedScroll(document.getElementById('api-id'), 0);
             }
-        },
-        component: {
-            uiFooter
         }
     };
 
