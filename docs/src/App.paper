@@ -314,12 +314,12 @@ CrossEndCanvas({
     import fixedScroll from './Service/fixedScroll.js';
     export default {
         mounted() {
-            fixedScroll(document.getElementById('api-id'), 0);
+            fixedScroll();
         },
         methods: {
             doScroll(fixedName) {
                 window.location.href = "#/" + fixedName;
-                fixedScroll(document.getElementById('api-id'), 0);
+                fixedScroll();
             }
         }
     };

@@ -1,10 +1,10 @@
 import animation from '@hai2007/tool/animation';
 
-export default function (element, overValue) {
+export default function (overValue) {
 
     overValue = overValue || 0;
 
-    element = element || document.documentElement;
+    let element = document.documentElement;
 
     let fixed = (window.location.href + "").split('#/')[1];
     if (fixed) {
