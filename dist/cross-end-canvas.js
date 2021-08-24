@@ -5,12 +5,12 @@
  *
  * author 你好2007 < https://hai2007.gitee.io/sweethome >
  *
- * version 0.1.0
+ * version 0.1.1
  *
  * Copyright (c) 2021 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Tue Aug 17 2021 22:37:09 GMT+0800 (GMT+08:00)
+ * Date:Tue Aug 24 2021 11:02:07 GMT+0800 (中国标准时间)
  */
 (function () {
   'use strict';
@@ -98,7 +98,7 @@
     painter.translate(x, y);
     painter.rotate(deg);
 
-    if (platform != 'default') {
+    if (platform != 'web') {
       painter.setFontSize(config['font-size']); // font-family目前无视了
     } else {
       painter.font = config['font-size'] + "px " + config['font-family'];

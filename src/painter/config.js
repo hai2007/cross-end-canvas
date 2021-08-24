@@ -46,7 +46,7 @@ export let initText = function (painter, config, x, y, deg, platform) {
     painter.beginPath();
     painter.translate(x, y);
     painter.rotate(deg);
-    if (platform != 'default') {
+    if (platform != 'web') {
         painter.setFontSize(config['font-size']);
         // font-family目前无视了
     } else {
