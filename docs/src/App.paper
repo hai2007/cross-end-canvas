@@ -105,6 +105,9 @@ CrossEndCanvas({
     id:string, // canvas的ID
     platform:string, // 平台，可选值： web|weixin|uni-app
     target:this, // weixin和unia-app需要配置，表示canvas所在的对象
+
+    el:DOM, // 如果是web平台，可以不传递id而直接传递canvas节点
+
 }).then(function(painter){
 
     // 使用painter绘制即可
