@@ -4,7 +4,7 @@ let CrossEndCanvas = config => new Promise((resolve, reject) => {
 
     if (config.platform == 'web') {
 
-        let canvas = document.getElementById(config.id);
+        let canvas = 'el' in config ? config.el : document.getElementById(config.id);
         let width = canvas.clientWidth,//内容+内边距
             height = canvas.clientHeight;
 

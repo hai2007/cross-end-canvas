@@ -5,12 +5,12 @@
  *
  * author 你好2007 < https://hai2007.gitee.io/sweethome >
  *
- * version 0.1.1
+ * version 0.2.0
  *
  * Copyright (c) 2021 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Tue Aug 24 2021 21:28:41 GMT+0800 (GMT+08:00)
+ * Date:Tue Mar 22 2022 13:09:59 GMT+0800 (中国标准时间)
  */
 (function () {
   'use strict';
@@ -397,7 +397,7 @@
   var CrossEndCanvas = function CrossEndCanvas(config) {
     return new Promise(function (resolve, reject) {
       if (config.platform == 'web') {
-        var canvas = document.getElementById(config.id);
+        var canvas = 'el' in config ? config.el : document.getElementById(config.id);
         var width = canvas.clientWidth,
             //内容+内边距
         height = canvas.clientHeight; // 设置显示大小

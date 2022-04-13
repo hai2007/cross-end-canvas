@@ -1,6 +1,6 @@
 {
   "name": "cross-end-canvas-docs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "跨端canvas画笔文档",
   "scripts": {
     "start": "npm install && npm run dev",

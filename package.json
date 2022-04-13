@@ -1,6 +1,6 @@
 {
   "name": "cross-end-canvas",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "提供跨端的canvas画笔，保持一致的绘图方法和效果，包括普通的web端、uniapp框架、微信小程序等小程序等。",
   "main": "dist/cross-end-canvas.min.js",
   "scripts": {
@@ -34,6 +34,6 @@
     "terser": "^4.1.2"
   },
   "dependencies": {
-    "@hai2007/tool": "^0.9.0"
+    "@hai2007/tool": "^1.2.0"
   }
 }

@@ -8,3 +8,7 @@ v0.1.1:
     date:2021-08-24
     changes:
       - 修复画笔配置平台判断错误（font-size）
+v0.2.0:
+    date:2022-03-22
+    changes:
+      - 为web平台新增el配置项
