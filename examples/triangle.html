@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角形</title>
+    <script src="https://cdn.jsdelivr.net/npm/cross-end-canvas@0"></script>
+    <style>
+        canvas {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="mycanvas"></canvas>
+
+    <script>
+        CrossEndCanvas({
+            id: "mycanvas",
+            platform: "web"
+        }).then(function (painter) {
+
+            //   配置画笔
+            painter.config({
+
+                // 我们最终画个填充的三角形，所以这里配置填充色
+                // 更多，查看文档： https://hai2007.github.io/cross-end-canvas/#/config
+                fillStyle: "red"
+            })
+
+            // 使用路径围起来一个三角形
+            // 对于非通用的图形，需要使用路径（路径理论上可以绘制所有图形）
+            // 文档： https://hai2007.github.io/cross-end-canvas/#/path
+            painter.beginPath()
+                .moveTo(100, 100)
+                .lineTo(300, 300)
+                .lineTo(150, 400)
+                .closePath()
+
+                // 三角形最终选择填充的
+                .fill();
+
+        });
+    </script>
+
+</body>
+
+</html>
