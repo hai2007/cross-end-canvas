@@ -3,8 +3,6 @@
 
 <p align="center">
   <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=cross-end-canvas"><img src="https://img.shields.io/npm/dm/cross-end-canvas.svg" alt="downloads"></a>
-  <a href="https://packagephobia.now.sh/result?p=cross-end-canvas"><img src="https://packagephobia.now.sh/badge?p=cross-end-canvas" alt="install size"></a>
-  <a href="https://www.jsdelivr.com/package/npm/cross-end-canvas"><img src="https://data.jsdelivr.com/v1/package/npm/cross-end-canvas/badge" alt="CDN"></a>
   <a href="https://www.npmjs.com/package/cross-end-canvas"><img src="https://img.shields.io/npm/v/cross-end-canvas.svg" alt="Version"></a>
   <a href="https://github.com/hai2007/cross-end-canvas/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/cross-end-canvas.svg" alt="License"></a>
     <a href="https://github.com/hai2007/cross-end-canvas" target='_blank'><img alt="GitHub repo stars" src="https://img.shields.io/github/stars/hai2007/cross-end-canvas?style=social"></a>
@@ -18,7 +16,7 @@
 如果是一个web项目，可以直接使用CDN的方式：
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cross-end-canvas@0"></script>
+<script src="https://unpkg.com/cross-end-canvas@0"></script>
 ```
 
 更多的时候，我们推荐使用npm的方式进行管理，安装：
@@ -33,6 +31,12 @@ npm install cross-end-canvas
 import CrossEndCanvas from 'cross-end-canvas';
 ```
 
+对于有些情况，如果引入失败，可能是打包工具配置问题，可以试着改用下面的语句导入：
+
+```js
+const CrossEndCanvas = require('cross-end-canvas');
+```
+
 使用起来也很简单：
 
 ```js
@@ -45,6 +49,12 @@ CrossEndCanvas({
     // 使用painter绘制即可
 
 });
+```
+
+特别注意，如果是微信小程序，提供的canvas标签，需要添加```type='2d'```属性，例如：
+
+```html
+<canvas id="canvas" style="width: 400px; height: 400px" type='2d'></canvas>
 ```
 
 具体内容，你可以[查看文档](https://hai2007.github.io/cross-end-canvas)哦~

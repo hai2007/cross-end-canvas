@@ -30,6 +30,9 @@
                                 <li>
                                     <h3 @click='doScroll("use-uniapp")'>uni-app特殊说明</h3>
                                 </li>
+                                <li>
+                                    <h3 @click='doScroll("use-wx")'>微信小程序特殊说明</h3>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -80,7 +83,7 @@
                 如果是一个web项目，可以直接使用CDN的方式：
             </p>
             <pre q-code>
-                <script src="https://cdn.jsdelivr.net/npm/cross-end-canvas@0"></script>
+                <script src="https://unpkg.com/cross-end-canvas@0"></script>
             </pre>
             <h3 id="fixed-npm" @click='doScroll("npm")'>NPM包管理</h3>
             <p>
@@ -94,6 +97,12 @@
             </p>
             <pre q-code>
                 import CrossEndCanvas from 'cross-end-canvas';
+            </pre>
+            <p>
+                对于有些情况，如果引入失败，可能是打包工具配置问题，可以试着改用下面的语句导入：
+            </p>
+            <pre q-code>
+                const CrossEndCanvas = require('cross-end-canvas');
             </pre>
             <h4 id="fixed-npm-wx" @click='doScroll("npm-wx")'>微信小程序特殊说明</h4>
             <p>
@@ -120,6 +129,13 @@ CrossEndCanvas({
             </p>
             <pre q-code>
                 painter.draw();
+            </pre>
+            <h3 id="fixed-use-wx" @click='doScroll("use-wx")'>微信小程序特殊说明</h3>
+            <p>
+                提供的canvas标签，特别注意要添加<span class="important">type='2d'</span>属性，例如：
+            </p>
+            <pre q-code="html">
+                <canvas id="canvas" style="width: 400px; height: 400px" type='2d'></canvas>
             </pre>
             <header id='fixed-painter'>
                 画笔
